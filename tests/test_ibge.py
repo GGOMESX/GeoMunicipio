@@ -5,7 +5,7 @@ import os
 import tempfile
 import unittest
 
-_PATH = os.path.join(os.path.dirname(__file__), "..", "geomunicipal", "ibge.py")
+_PATH = os.path.join(os.path.dirname(__file__), "..", "geomunicipio", "ibge.py")
 _spec = importlib.util.spec_from_file_location("ibge", _PATH)
 ibge = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(ibge)

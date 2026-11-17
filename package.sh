@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Gera geomunicipal-<versão>.zip pronto para enviar ao plugins.qgis.org
+# Gera geomunicipio-<versão>.zip pronto para enviar ao plugins.qgis.org
 set -euo pipefail
 cd "$(dirname "$0")"
-VERSION=$(grep '^version=' geomunicipal/metadata.txt | cut -d= -f2)
-OUT="geomunicipal-${VERSION}.zip"
+VERSION=$(grep '^version=' geomunicipio/metadata.txt | cut -d= -f2)
+OUT="geomunicipio-${VERSION}.zip"
 rm -f "$OUT"
-find geomunicipal -name '__pycache__' -type d -prune -exec rm -rf {} +
-zip -r "$OUT" geomunicipal -x '*.pyc' '*/.git/*' '*/.DS_Store'
+find geomunicipio -name '__pycache__' -type d -prune -exec rm -rf {} +
+zip -r "$OUT" geomunicipio -x '*.pyc' '*/.git/*' '*/.DS_Store'
 echo "Gerado: $OUT"

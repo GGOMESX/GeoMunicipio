@@ -18,18 +18,18 @@ APIs públicas do IBGE:
 
 ## Instalação
 - **Pelo QGIS** (depois de publicado): *Complementos → Gerenciar e instalar complementos*, busque "GeoMunicípio".
-- **Pelo ZIP:** baixe o arquivo em [Releases](https://github.com/GGOMESX/GeoMunicipal/releases) e use *Complementos → Gerenciar e instalar complementos → Instalar a partir do ZIP*.
+- **Pelo ZIP:** baixe o arquivo em [Releases](https://github.com/GGOMESX/GeoMunicipio/releases) e use *Complementos → Gerenciar e instalar complementos → Instalar a partir do ZIP*.
 
 ## Estrutura do repositório
 ```
-geomunicipal/        código do plugin (a pasta que vai dentro do ZIP)
+geomunicipio/        código do plugin (a pasta que vai dentro do ZIP)
 tests/               testes da busca (rodam sem QGIS)
-package.sh           gera geomunicipal-<versão>.zip
+package.sh           gera geomunicipio-<versão>.zip
 .github/workflows/   CI: testes a cada push e release automática a cada tag v*
 ```
 
 ## Lançar uma nova versão
-1. Atualize `version=` e o `changelog` em `geomunicipal/metadata.txt`.
+1. Atualize `version=` e o `changelog` em `geomunicipio/metadata.txt`.
 2. Crie e envie a tag com a mesma versão (o CI gera o ZIP e cria a release no GitHub):
    ```bash
    git tag v0.1.0
@@ -40,7 +40,7 @@ package.sh           gera geomunicipal-<versão>.zip
 ## Desenvolvimento
 Testes: `python -m unittest discover tests`
 
-Copie (ou crie um link simbólico de) a pasta `geomunicipal` para a pasta de plugins do seu perfil do QGIS:
+Copie (ou crie um link simbólico de) a pasta `geomunicipio` para a pasta de plugins do seu perfil do QGIS:
 - Windows: `%APPDATA%\QGIS\QGIS3\profiles\default\python\plugins\`
 - Linux: `~/.local/share/QGIS/QGIS3/profiles/default/python/plugins/`
 - macOS: `~/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins/`
