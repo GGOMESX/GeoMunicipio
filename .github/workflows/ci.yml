@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Verificar sintaxe
-        run: python -m compileall -q geomunicipio
+        run: python -m compileall -q GeoMunicipio
       - name: Testes
         run: python -m unittest discover -v tests
 
@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Conferir versão da tag com metadata.txt
         run: |
-          VERSION=$(grep '^version=' geomunicipio/metadata.txt | cut -d= -f2)
+          VERSION=$(grep '^version=' GeoMunicipio/metadata.txt | cut -d= -f2)
           if [ "v${VERSION}" != "${GITHUB_REF_NAME}" ]; then
             echo "Tag ${GITHUB_REF_NAME} diferente da versão ${VERSION} do metadata.txt"; exit 1
           fi
@@ -42,7 +42,7 @@ jobs:
         run: |
           # Se a release já foi criada pela página do GitHub, só anexa o ZIP.
           if gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
-            gh release upload "${GITHUB_REF_NAME}" geomunicipio-*.zip --clobber
+            gh release upload "${GITHUB_REF_NAME}" GeoMunicipio-*.zip --clobber
           else
-            gh release create "${GITHUB_REF_NAME}" geomunicipio-*.zip --title "GeoMunicípio ${GITHUB_REF_NAME}" --generate-notes
+            gh release create "${GITHUB_REF_NAME}" GeoMunicipio-*.zip --title "GeoMunicípio ${GITHUB_REF_NAME}" --generate-notes
           fi

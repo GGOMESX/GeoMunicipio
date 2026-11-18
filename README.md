@@ -22,14 +22,14 @@ APIs públicas do IBGE:
 
 ## Estrutura do repositório
 ```
-geomunicipio/        código do plugin (a pasta que vai dentro do ZIP)
+GeoMunicipio/        código do plugin (a pasta que vai dentro do ZIP)
 tests/               testes da busca (rodam sem QGIS)
-package.sh           gera geomunicipio-<versão>.zip
+package.sh           gera GeoMunicipio-<versão>.zip
 .github/workflows/   CI: testes a cada push e release automática a cada tag v*
 ```
 
 ## Lançar uma nova versão
-1. Atualize `version=` e o `changelog` em `geomunicipio/metadata.txt`.
+1. Atualize `version=` e o `changelog` em `GeoMunicipio/metadata.txt`.
 2. Crie e envie a tag com a mesma versão (o CI gera o ZIP e cria a release no GitHub):
    ```bash
    git tag v0.1.0
@@ -40,7 +40,7 @@ package.sh           gera geomunicipio-<versão>.zip
 ## Desenvolvimento
 Testes: `python -m unittest discover tests`
 
-Copie (ou crie um link simbólico de) a pasta `geomunicipio` para a pasta de plugins do seu perfil do QGIS:
+Copie (ou crie um link simbólico de) a pasta `GeoMunicipio` para a pasta de plugins do seu perfil do QGIS:
 - Windows: `%APPDATA%\QGIS\QGIS3\profiles\default\python\plugins\`
 - Linux: `~/.local/share/QGIS/QGIS3/profiles/default/python/plugins/`
 - macOS: `~/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins/`
